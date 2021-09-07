@@ -5,9 +5,9 @@ import {
   GET_MOVIE_LOADING,
 } from "./types";
 
-export const getMovieLoading = (user) => ({
+export const getMovieLoading = {
   type: GET_MOVIE_LOADING,
-});
+};
 
 export const getMovieSuccess = (movie) => ({
   type: GET_MOVIE_SUCCESS,

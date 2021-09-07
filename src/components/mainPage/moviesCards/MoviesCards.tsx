@@ -1,25 +1,40 @@
 import * as React from "react";
-import { useSelector } from "react-redux";
-import { getMoviesData } from "../../../store/movies/selectors";
-// import { loadMovie } from "../../../store/movie/operations";
+import { Grid, Card, CardContent } from "@material-ui/core";
+import { MovieCard } from "./movieCard/MovieCard";
+import { movieDataI } from "types/movieDataI";
+import { makeStyles } from "@material-ui/core/styles";
 
-interface movieDataI {
-  Title: string;
-  Year: string;
-  imdbID: string;
-  Type: string;
-  Poster: string;
+const useStyles = makeStyles({
+  movieCardsContainer: {
+    backgroundColor: "#edefee",
+    padding: "10px 0px",
+    boxShadow: "0px 1px 7px 10px rgba(63, 81, 181, 0.2)",
+    margin: "5px 1%",
+    width: "98%",
+  },
+});
+
+interface moviesProps {
+  movies: movieDataI[];
 }
 
-export const MoviesCards = (): JSX.Element => {
-  // const dispatch = useDispatch();
-  const { movies, isLoading, error } = useSelector(getMoviesData);
-  console.log(isLoading, error);
+export const MoviesCards = ({ movies }: moviesProps): JSX.Element => {
+  const classes = useStyles();
   return (
-    <>
-      {movies.map((movie: movieDataI) => {
-        return <h3 key={movie.imdbID}>{movie.Title}</h3>;
-      })}
-    </>
+    <Card className={classes.movieCardsContainer}>
+      <CardContent>
+        <Grid container spacing={2}>
+          {movies.map((movie: movieDataI) => {
+            return (
+              <Grid key={movie.imdbID} item xs={4}>
+                <Grid container justifyContent="center">
+                  <MovieCard movie={movie} />
+                </Grid>
+              </Grid>
+            );
+          })}
+        </Grid>
+      </CardContent>
+    </Card>
   );
 };
