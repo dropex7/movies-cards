@@ -26,7 +26,7 @@ export const MoviesCards = ({ movies }: moviesProps): JSX.Element => {
         <Grid container spacing={2}>
           {movies.map((movie: movieDataI) => {
             return (
-              <Grid key={movie.imdbID} item xs={4}>
+              <Grid key={movie.imdbID} item xs={3}>
                 <Grid container justifyContent="center">
                   <MovieCard movie={movie} />
                 </Grid>

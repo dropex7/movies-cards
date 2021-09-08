@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     boxShadow: "4px 4px 9px 3px rgba(63, 81, 181, 0.22)",
   },
   cardActionArea: {
-    width: "350px",
+    width: "330px",
     height: "500px",
   },
   cardImage: { height: "250px" },

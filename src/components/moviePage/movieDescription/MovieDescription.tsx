@@ -1,19 +1,11 @@
 import * as React from "react";
 import { movieDescriptionI } from "types/movieDataI";
 import { Grid, Typography } from "@material-ui/core";
-
+import { getKeyValue } from "utils/getKeyValue";
+import { MovieRatings } from "./movieRatings/MovieRatings";
 interface movieDescriptionPropsI {
   movie: movieDescriptionI;
 }
-
-const getKeyValue =
-  <U extends keyof T, T extends object>(key: U) =>
-  (obj: T) => {
-    if (key === "Ratings" || key === "Poster" || key === "Response") {
-      return;
-    }
-    return obj[key];
-  };
 
 export const MovieDescription = ({
   movie,
@@ -21,27 +13,18 @@ export const MovieDescription = ({
   type movieDescriptionKeys = keyof typeof movie;
   return (
     <Grid container justifyContent="center" direction="row">
-      {Object.keys(movie).map((key) => {
-        // if(key === "Ratings"){
-        //   return (<Grid item xs={6}>
-        //     <Typography gutterBottom variant="h5" component="span">
-        //       {key}:
-        //     </Typography>
-        //     <Typography gutterBottom variant="h5" component="span">
-        //       {getKeyValue<keyof movieDescriptionI, movieDescriptionI>(
-        //         key as movieDescriptionKeys
-        //       )(movie)}
-        //     </Typography>
-        //   </Grid>)
-        // }
+      {Object.keys(movie).map((k) => {
+        if (k === "Ratings") {
+          return <MovieRatings key={k} />;
+        }
         return (
-          <Grid item xs={6}>
+          <Grid item xs={6} key={k}>
             <Typography gutterBottom variant="h5" component="span">
-              {key}:
+              {k}:
             </Typography>
             <Typography gutterBottom variant="h5" component="span">
               {getKeyValue<keyof movieDescriptionI, movieDescriptionI>(
-                key as movieDescriptionKeys
+                k as movieDescriptionKeys
               )(movie)}
             </Typography>
           </Grid>

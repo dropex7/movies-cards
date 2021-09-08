@@ -21,6 +21,9 @@ const useStyles = makeStyles({
     "&:hover": {
       backgroundColor: "#58a5e1",
     },
+    "&:disabled": {
+      color: "#58a5e1",
+    },
   },
 });
 
@@ -30,7 +33,7 @@ export const SearchField = (): JSX.Element => {
   useSelector((state) => console.log(state));
   const [searchField, setSearchField] = React.useState("");
   const searchByClickEnter = (event: any): void => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && searchField.length > 2) {
       searchByField();
     }
   };
@@ -57,7 +60,11 @@ export const SearchField = (): JSX.Element => {
           onKeyPress={searchByClickEnter}
           labelWidth={0}
         />
-        <Button className={classes.searchBtn} onClick={searchByField}>
+        <Button
+          disabled={searchField.length > 0 && searchField.length < 3}
+          className={classes.searchBtn}
+          onClick={searchByField}
+        >
           Search
         </Button>
       </Grid>

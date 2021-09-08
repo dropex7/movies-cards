@@ -7,7 +7,7 @@ import { NotFoundList } from "./notFoundList/NotFoundList";
 import { Grid } from "@material-ui/core";
 
 export const MainPage = (): JSX.Element => {
-  const { movies } = useSelector(getMoviesData);
+  const movies = useSelector(getMoviesData);
   return (
     <Grid
       container

@@ -34,7 +34,7 @@ export interface movieDescriptionI {
   Response: string;
 }
 
-interface ratingI {
-  Source: string;
-  Value: string;
+export interface ratingI {
+  Source?: string;
+  Value?: string;
 }
