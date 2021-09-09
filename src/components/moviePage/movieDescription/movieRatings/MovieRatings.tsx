@@ -13,10 +13,10 @@ export const MovieRatings = (): JSX.Element => {
         {ratings.map((rating: ratingI) => {
           return (
             <Grid item xs={6} key={rating.Source}>
-              <Typography gutterBottom variant="h5" component="span">
-                {rating.Source}:
+              <Typography gutterBottom variant="h6" component="span">
+                <b>{rating.Source}: </b>
               </Typography>
-              <Typography gutterBottom variant="h5" component="span">
+              <Typography gutterBottom variant="h6" component="span">
                 {rating.Value}
               </Typography>
             </Grid>

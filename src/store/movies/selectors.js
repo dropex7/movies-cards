@@ -1,4 +1,4 @@
-import { makeUniqMoviesData } from "utils/makeUniqMovieData";
+import { makeUniqMoviesData } from "utils/makeUniqMoviesData";
 
 export const getMoviesData = (store) => {
   if (store.movies.movies && store.movies.movies.length > 0) {

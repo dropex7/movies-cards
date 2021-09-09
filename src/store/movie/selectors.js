@@ -5,3 +5,5 @@ export const getMovieRatings = (store) => {
   }
   return null;
 };
+
+export const getMoviePlot = (store) => store.movie.movie.Plot;

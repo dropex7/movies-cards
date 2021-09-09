@@ -8,6 +8,7 @@ import { Grid } from "@material-ui/core";
 
 export const MainPage = (): JSX.Element => {
   const movies = useSelector(getMoviesData);
+  console.log(movies);
   return (
     <Grid
       container

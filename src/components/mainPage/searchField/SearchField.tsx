@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Grid } from "@material-ui/core";
 import { loadMovies } from "store/movies/operations";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { OutlinedInput, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -30,7 +30,6 @@ const useStyles = makeStyles({
 export const SearchField = (): JSX.Element => {
   const classes = useStyles();
   const dispatch = useDispatch();
-  useSelector((state) => console.log(state));
   const [searchField, setSearchField] = React.useState("");
   const searchByClickEnter = (event: any): void => {
     if (event.key === "Enter" && searchField.length > 2) {

@@ -7,7 +7,7 @@ import { defaultUrl } from "constans/defaultUrl";
 
 export const MoviePage = (): JSX.Element => {
   const { movie } = useSelector(getMovieData);
-
+  console.log(movie);
   return (
     <Card style={{ margin: "30px 10px", border: "1px solid black" }}>
       <CardContent>
@@ -19,7 +19,11 @@ export const MoviePage = (): JSX.Element => {
         >
           <Grid item xs={3}>
             <img
-              src={movie.Poster !== "N/A" ? movie.Poster : defaultUrl}
+              src={
+                movie.Poster && movie.Poster !== "N/A"
+                  ? movie.Poster
+                  : defaultUrl
+              }
               alt={movie.Title}
             />
           </Grid>
