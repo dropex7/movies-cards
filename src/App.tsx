@@ -4,7 +4,6 @@ import store from "./store/configureStore";
 import { Router } from "./Router";
 
 function App() {
-  console.log(store.getState());
   return (
     <Provider store={store}>
       <Router />
