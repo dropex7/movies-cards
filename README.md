@@ -4,11 +4,13 @@
 * React
 * Redux
 * Typescript
-* Redux Saga или Redux Thunk
+* Redux Thunk
 * Jest
 * Enzyme
 
 ### Дана API - https://www.omdbapi.com/
+
+### ТЗ
 
 * Должен быть реализован поиск фильмов и вывод их в виде карточек с краткой информацией.
 * Поиск при нажатии на кнопку.
